@@ -54,5 +54,17 @@ public class WormScript : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D elOtro)
+    {
+        if (elOtro.gameObject.CompareTag("DeteccionPlayer"))
+        {
+
+        }
+        else if (elOtro.gameObject.CompareTag("PlayerHotBox"))
+        {
+
+        }
+    }
+
+
 }
