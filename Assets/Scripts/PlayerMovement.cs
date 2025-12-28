@@ -6,7 +6,15 @@ public class PlayerMovement : MonoBehaviour
     private float inputH;
     [SerializeField] private float velocidadMovimiento = 5;
     [SerializeField] private float fuerzaSalto;
+    [Header("sistema de ataque")]
+    [SerializeField] private Transform puntoAtaque;
+    [SerializeField] private float radioAtaque=0.3f;
+    [SerializeField] private LayerMask queEsDanhable;
+    [SerializeField] private float danhioAtaque = 20;
     private Animator anim;
+
+    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,16 +31,27 @@ public class PlayerMovement : MonoBehaviour
     {
         Movimiento();
         Saltar();
-        Atacar();
+        LanzarAtacar();
     }
 
-    private void Atacar()
+    private void LanzarAtacar()
     {
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Atacar");
         }
     }
+    //se ejecuta desde evento de animacion
+    private void Ataque()
+    {
+        Collider2D[] collidersTocados = Physics2D.OverlapCircleAll(puntoAtaque.position, radioAtaque, queEsDanhable);
+        foreach (Collider2D item in collidersTocados)
+        {
+            SistemaVidas sistemaVidas = item.gameObject.GetComponent<SistemaVidas>();
+            sistemaVidas.RecibirDanhio(danhioAtaque);
+        }
+    }
+
 
     private void Saltar()
     {
@@ -62,5 +81,10 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("Correr", false);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(puntoAtaque.position,radioAtaque);
     }
 }

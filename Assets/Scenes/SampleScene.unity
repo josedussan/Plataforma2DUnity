@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 155092190}
   - component: {fileID: 155092194}
   - component: {fileID: 155092193}
+  - component: {fileID: 155092196}
   - component: {fileID: 155092195}
   m_Layer: 6
   m_Name: Player
@@ -281,6 +282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 979499478}
+  - {fileID: 363423541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &155092193
@@ -336,7 +338,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 10
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 055401fed8802ef46a6d0f4cc522c36b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -361,6 +363,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   velocidadMovimiento: 12
   fuerzaSalto: 30
+  puntoAtaque: {fileID: 363423541}
+  radioAtaque: 0.3
+  queEsDanhable:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &155092196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155092189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d352515000e23de45b0bb1b6f2855935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SistemaVidas
+  vida: 100
 --- !u!1 &190146087
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +502,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2032348264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &363423540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363423541}
+  m_Layer: 0
+  m_Name: SpawnAtaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363423541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363423540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.13, y: -0.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155092192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &412297304
 GameObject:
@@ -1517,6 +1568,7 @@ GameObject:
   - component: {fileID: 626938165}
   - component: {fileID: 626938164}
   - component: {fileID: 626938166}
+  - component: {fileID: 626938167}
   m_Layer: 6
   m_Name: Worm
   m_TagString: Untagged
@@ -1630,6 +1682,20 @@ MonoBehaviour:
   - {fileID: 1381938504}
   - {fileID: 282550394}
   velocidad: 5
+  danhioCausado: 10
+--- !u!114 &626938167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626938162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d352515000e23de45b0bb1b6f2855935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  vida: 60
 --- !u!1 &976146472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6064,7 +6130,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

@@ -5,6 +5,7 @@ public class WormScript : MonoBehaviour
 {
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] private float velocidad=5;
+    [SerializeField] private float danhioCausado=10;
     private Vector3 destinoActual;
     private int indiceActual=0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,11 +59,20 @@ public class WormScript : MonoBehaviour
     {
         if (elOtro.gameObject.CompareTag("DeteccionPlayer"))
         {
-
+            velocidad = 20;
         }
-        else if (elOtro.gameObject.CompareTag("PlayerHotBox"))
+        else if (elOtro.gameObject.CompareTag("PlayerHitBox"))
         {
+            SistemaVidas sistemaVidas= elOtro.gameObject.GetComponent<SistemaVidas>();
+            sistemaVidas.RecibirDanhio(danhioCausado);
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D elOtro)
+    {
+        if (elOtro.gameObject.CompareTag("DeteccionPlayer"))
+        {
+            velocidad = 5;
         }
     }
 
