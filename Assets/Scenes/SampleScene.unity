@@ -283,6 +283,7 @@ Transform:
   m_Children:
   - {fileID: 979499478}
   - {fileID: 363423541}
+  - {fileID: 664687961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &155092193
@@ -363,11 +364,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   velocidadMovimiento: 12
   fuerzaSalto: 30
+  queEsSaltable:
+    serializedVersion: 2
+    m_Bits: 256
+  distanciaSuelo: 0.3
+  pies: {fileID: 664687961}
   puntoAtaque: {fileID: 363423541}
   radioAtaque: 0.3
   queEsDanhable:
     serializedVersion: 2
     m_Bits: 64
+  danhioAtaque: 20
 --- !u!114 &155092196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,6 +1703,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   vida: 60
+--- !u!1 &664687960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664687961}
+  m_Layer: 6
+  m_Name: pies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &664687961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664687960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.428, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155092192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976146472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2104,7 @@ GameObject:
   - component: {fileID: 1434248655}
   - component: {fileID: 1434248654}
   - component: {fileID: 1434248653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collisiones
   m_TagString: Untagged
   m_Icon: {fileID: 0}

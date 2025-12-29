@@ -4,8 +4,13 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float inputH;
+    [Header("Sistema de movimiento")]
     [SerializeField] private float velocidadMovimiento = 5;
     [SerializeField] private float fuerzaSalto;
+    [SerializeField] private LayerMask queEsSaltable;
+    [SerializeField] private float distanciaSuelo=0.30f;
+    [SerializeField] private Transform pies;
+
     [Header("sistema de ataque")]
     [SerializeField] private Transform puntoAtaque;
     [SerializeField] private float radioAtaque=0.3f;
@@ -55,11 +60,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Saltar()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && EstoyEnSuelo())
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             anim.SetTrigger("Saltar");
         }
+    }
+
+    private bool EstoyEnSuelo()
+    {
+        return Physics2D.Raycast(pies.position,Vector3.down,distanciaSuelo,queEsSaltable);
     }
 
     private void Movimiento()
