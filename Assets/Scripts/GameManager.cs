@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnPlayerMuere()
+    public void OnPlayerMuere()
     {
         // Decide el flujo, no la vida
         // Respawn, game over, reiniciar nivel

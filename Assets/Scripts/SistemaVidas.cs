@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class SistemaVidas : MonoBehaviour
 {
-    [SerializeField] private float vida=5;
+    [SerializeField] private int vida=5;
     [SerializeField] private string triggerDanio = "Danio";
     private Animator animator;
     public UnityEvent<int> onVidaChanged;
@@ -13,12 +13,14 @@ public class SistemaVidas : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    public void RecibirDanhio(float danhioRecibido)
+    public void RecibirDanhio(int danhioRecibido)
     {
         vida -= danhioRecibido;
+        onVidaChanged?.Invoke(vida);
         ActivarAnimacionDanio();
         if (vida<=0)
         {
+            onMuerte?.Invoke();
             Destroy(this.gameObject);
         }
     }
