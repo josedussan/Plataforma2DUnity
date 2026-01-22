@@ -10,18 +10,12 @@ public class CausarDanio : MonoBehaviour
     public void Daniar(GameObject otro) {
         sistemaVidas = otro.GetComponent<SistemaVidas>();
         de = otro.GetComponent<DamageEffect>();
-        Debug.Log("entra aqui a daniar");
         if (sistemaVidas)
         {
-            Debug.Log(otro.name+" "+ sistemaVidas.getVida());
             sistemaVidas.RecibirDanhio(danioAtaque);
             if (de)
             {
                 de.FlashRojo(0.1f);
-            }
-            else
-            {
-                Debug.Log("no encuentra el damageEffect de: "+this.gameObject.name);
             }
         }
     }

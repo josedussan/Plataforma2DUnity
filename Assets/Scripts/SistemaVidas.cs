@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SistemaVidas : MonoBehaviour
 {
-    [SerializeField] private float vida;
+    [SerializeField] private float vida=5;
     [SerializeField] private string triggerDanio = "Danio";
     private Animator animator;
-
+    public UnityEvent<int> onVidaChanged;
+    public UnityEvent onMuerte;
     private void Awake()
     {
         animator = GetComponent<Animator>();

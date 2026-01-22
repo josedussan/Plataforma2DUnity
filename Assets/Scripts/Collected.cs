@@ -6,6 +6,7 @@ public class Collected : MonoBehaviour
     {
         if (collision.CompareTag("PlayerHitBox"))
         {
+            GameManager.Instance.AddMoneda();
             Destroy(gameObject, 0.2f);
         }
         
