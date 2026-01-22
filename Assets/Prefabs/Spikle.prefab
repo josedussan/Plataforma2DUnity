@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016e98e5e998cc1459b5df095fb93f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CausarDanio
-  danioAtaque: 5
+  danioAtaque: 1
   capasObjetivo:
     serializedVersion: 2
     m_Bits: 64

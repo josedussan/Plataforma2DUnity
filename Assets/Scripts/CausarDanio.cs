@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CausarDanio : MonoBehaviour
 {
-    [SerializeField] float danioAtaque=10f;
+    [SerializeField] int danioAtaque=1;
     private SistemaVidas sistemaVidas;
     private DamageEffect de;
     [SerializeField] LayerMask capasObjetivo;

@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class PlatformEffector : MonoBehaviour
+{
+    private PlatformEffector2D effector;
+    [SerializeField] float startWaitTime;
+    private float waitedTime;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        effector = GetComponent<PlatformEffector2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.DownArrow)||Input.GetKeyUp("s"))
+        {
+            waitedTime = startWaitTime;
+        }
+        if (Input.GetKey(KeyCode.DownArrow)||Input.GetKey("s"))
+        {
+            if (waitedTime<=0)
+            {
+                effector.rotationalOffset = 180f;
+                waitedTime = startWaitTime;
+            }
+            else
+            {
+                waitedTime -= Time.deltaTime;
+            }
+        }
+
+        if (Input.GetKey("space"))
+        {
+            effector.rotationalOffset = 0f;
+        }
+    }
+}
