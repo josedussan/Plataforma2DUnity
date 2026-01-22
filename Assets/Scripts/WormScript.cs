@@ -5,7 +5,6 @@ public class WormScript : MonoBehaviour
 {
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] private float velocidad=5;
-    [SerializeField] private float danhioCausado=10;
     private Vector3 destinoActual;
     private int indiceActual=0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,11 +46,11 @@ public class WormScript : MonoBehaviour
 
         if (destinoActual.x<transform.position.x)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(4,4,4);
         }
         else
         {
-            transform.localScale = new Vector3(-1,1,1);
+            transform.localScale = new Vector3(-4,4,4);
         }
     }
 
@@ -59,12 +58,7 @@ public class WormScript : MonoBehaviour
     {
         if (elOtro.gameObject.CompareTag("DeteccionPlayer"))
         {
-            velocidad = 20;
-        }
-        else if (elOtro.gameObject.CompareTag("PlayerHitBox"))
-        {
-            SistemaVidas sistemaVidas= elOtro.gameObject.GetComponent<SistemaVidas>();
-            sistemaVidas.RecibirDanhio(danhioCausado);
+            //velocidad = 20;
         }
     }
 
