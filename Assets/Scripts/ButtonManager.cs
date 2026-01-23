@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
 
 
     public void LlamarPanel(RectTransform panel) {
-        ReproducirSonido();
+        PlaySound();
         if (!panel.gameObject.activeSelf)
         {
             PararJuego(0);
@@ -24,13 +24,13 @@ public class ButtonManager : MonoBehaviour
     public void IrMenuPrincipal()
     {
         PararJuego(1);
-        ReproducirSonido();
+        PlaySound();
         sceneManager.LoadScene("MenuPrincipal");
     }
 
     public void CerrarJuego()
     {
-        ReproducirSonido();
+        PlaySound();
         Application.Quit();
     }
 
@@ -39,7 +39,7 @@ public class ButtonManager : MonoBehaviour
         Time.timeScale = num;
     }
 
-    void ReproducirSonido()
+    void PlaySound()
     {
         asource.PlayOneShot(clip);
     }
