@@ -19,7 +19,6 @@ public class JumpDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("entra al jumpDamage con: "+collision.gameObject.name);
         collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * jumpForce);
         LossLife();
     }

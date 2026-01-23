@@ -32,5 +32,6 @@ public class CausarDanio : MonoBehaviour
         if (((1 << other.gameObject.layer) & capasObjetivo) == 0)
             return;
         Daniar(other.gameObject);
+        Destroy(gameObject);
     }
 }
