@@ -7,6 +7,7 @@ public class GameState : ScriptableObject
     public int monedas;
     public int score;
     public int vidas;
+    public bool llave=false;
 
     public void Reset()
     {
@@ -14,5 +15,11 @@ public class GameState : ScriptableObject
         monedas = 0;
         score = 0;
         vidas = 5;
+        llave = false;
+    }
+
+    public bool EstadoLlave()
+    {
+        return llave;
     }
 }

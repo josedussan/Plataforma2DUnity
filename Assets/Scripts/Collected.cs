@@ -12,6 +12,11 @@ public class Collected : MonoBehaviour
             asource.PlayOneShot(clip);
             Destroy(gameObject, 0.2f);
         }
+
+        if (gameObject.CompareTag("Llave"))
+        {
+            GameManager.Instance.UpdateKey(true);
+        }
         
     }
 }

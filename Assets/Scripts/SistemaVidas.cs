@@ -16,6 +16,7 @@ public class SistemaVidas : MonoBehaviour
     public void RecibirDanhio(int danhioRecibido)
     {
         vida -= danhioRecibido;
+        GameManager.Instance.QuitVida();
         onVidaChanged?.Invoke(vida);
         ActivarAnimacionDanio();
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * 25f);

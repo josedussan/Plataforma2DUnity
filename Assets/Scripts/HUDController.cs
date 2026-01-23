@@ -10,7 +10,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI nivelText;
     [SerializeField] List<Image> vidas;
-    [SerializeField] List<Sprite> spriteVidas;
+    [SerializeField] List<Sprite> spriteVidas,spriteLlave;
+    [SerializeField] Image llave;
     void Start()
     {
         var gm = GameManager.Instance;
@@ -20,16 +21,31 @@ public class HUDController : MonoBehaviour
         scoreText.text = gm.GetState().score.ToString();
         nivelText.text = gm.GetState().nivelActual.ToString();
 
+
         // Suscribirse a eventos
         gm.onMonedasChanged.AddListener(UpdateMonedas);
         gm.onScoreChanged.AddListener(UpdateScore);
         gm.onNivelChanged.AddListener(UpdateNivel);
         gm.onVidasChanged.AddListener(UpdateVidas);
+        gm.onLlaveChange.AddListener(UpdateLlave);
     }
 
     void UpdateMonedas(int valor)
     {
         monedasText.text = valor.ToString();
+    }
+
+    void UpdateLlave(bool condicion)
+    {
+        if (condicion)
+        {
+            llave.sprite = spriteLlave[0];
+        }
+        else
+        {
+            llave.sprite = spriteLlave[0];
+        }
+        
     }
 
     void UpdateScore(int valor)

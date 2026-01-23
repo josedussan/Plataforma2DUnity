@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent<int> onScoreChanged;
     public UnityEvent<int> onNivelChanged;
     public UnityEvent<int> onVidasChanged;
+    public UnityEvent<bool> onLlaveChange;
 
 
     void Awake()
@@ -23,6 +24,12 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void UpdateKey(bool estado)
+    {
+        gameState.llave = estado;
+        onLlaveChange.Invoke(gameState.llave);
     }
 
     public void AddMoneda(int cantidad = 1)
