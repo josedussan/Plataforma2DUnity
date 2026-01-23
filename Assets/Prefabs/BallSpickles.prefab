@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3897416681047045094, guid: bbc0ed9926908064e808c6e25d3e8fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CausarDanio
   danioAtaque: 1
+  jumpForce: 5
   capasObjetivo:
     serializedVersion: 2
     m_Bits: 64
@@ -224,7 +225,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8843950756733057639, guid: bbc0ed9926908064e808c6e25d3e8fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,7 +316,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8843950756733057639, guid: bbc0ed9926908064e808c6e25d3e8fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -464,7 +465,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7578048785204278385, guid: bbc0ed9926908064e808c6e25d3e8fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
