@@ -9,7 +9,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] float speed = 0.5f;
     [SerializeField] Transform[] moveSpots;
     private float waitTime;
-    private float startWaitTime = 2;
+    [SerializeField] float startWaitTime = 2;
     private int i = 0;
     private Vector2 actualPost;
 

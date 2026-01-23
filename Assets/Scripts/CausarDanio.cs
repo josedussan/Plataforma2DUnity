@@ -5,10 +5,13 @@ public class CausarDanio : MonoBehaviour
     [SerializeField] int danioAtaque=1;
     private SistemaVidas sistemaVidas;
     private DamageEffect de;
+    [SerializeField] float jumpForce=5;
     [SerializeField] LayerMask capasObjetivo;
 
     public void Daniar(GameObject otro) {
         sistemaVidas = otro.GetComponent<SistemaVidas>();
+        float direccionX =otro.GetComponent<SpriteRenderer>().flipX ? 1f : -1f;
+        otro.gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(direccionX * jumpForce, otro.gameObject.GetComponent<Rigidbody2D>().linearVelocityY);
         de = otro.GetComponent<DamageEffect>();
         if (sistemaVidas)
         {
@@ -32,6 +35,5 @@ public class CausarDanio : MonoBehaviour
         if (((1 << other.gameObject.layer) & capasObjetivo) == 0)
             return;
         Daniar(other.gameObject);
-        Destroy(gameObject);
     }
 }
