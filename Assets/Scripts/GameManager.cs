@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void QuitVida()
     {
         gameState.vidas -= 1;
+        onVidasChanged.Invoke(gameState.vidas);
         if (gameState.vidas<1)
         {
             OnPlayerMuere();
@@ -63,6 +64,16 @@ public class GameManager : MonoBehaviour
     {
         // Decide el flujo, no la vida
         // Respawn, game over, reiniciar nivel
+    }
+
+    public void Reiniciar()
+    {
+        gameState.monedas =0;
+        onMonedasChanged.Invoke(gameState.monedas);
+        gameState.vidas =5;
+        onVidasChanged.Invoke(gameState.vidas);
+        gameState.llave = false;
+        onLlaveChange.Invoke(gameState.llave);
     }
 
     public GameState GetState() => gameState;

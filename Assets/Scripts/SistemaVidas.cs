@@ -11,6 +11,7 @@ public class SistemaVidas : MonoBehaviour
     public UnityEvent onMuerte;
     private void Awake()
     {
+        
         animator = GetComponent<Animator>();
     }
     public void RecibirDanhio(int danhioRecibido)
@@ -19,7 +20,7 @@ public class SistemaVidas : MonoBehaviour
         GameManager.Instance.QuitVida();
         onVidaChanged?.Invoke(vida);
         ActivarAnimacionDanio();
-        gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * 25f);
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * 40f);
         if (vida<=0)
         {
             onMuerte?.Invoke();
@@ -38,5 +39,10 @@ public class SistemaVidas : MonoBehaviour
     public float getVida()
     {
         return vida;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.Reiniciar();
     }
 }

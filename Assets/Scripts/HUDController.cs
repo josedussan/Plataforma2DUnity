@@ -37,15 +37,7 @@ public class HUDController : MonoBehaviour
 
     void UpdateLlave(bool condicion)
     {
-        if (condicion)
-        {
-            llave.sprite = spriteLlave[0];
-        }
-        else
-        {
-            llave.sprite = spriteLlave[0];
-        }
-        
+        llave.gameObject.SetActive(condicion);  
     }
 
     void UpdateScore(int valor)
@@ -59,6 +51,10 @@ public class HUDController : MonoBehaviour
     }
 
     void UpdateVidas(int valor) {
-        vidas[valor - 1].sprite = spriteVidas[1];
+        if (valor!=5)
+        {
+            vidas[valor].sprite = spriteVidas[1];
+        }
+        
     }
 }
