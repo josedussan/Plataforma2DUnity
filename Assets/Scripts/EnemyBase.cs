@@ -67,5 +67,9 @@ public class EnemyBase : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+        else if (transform.position.x==actualPost.x)
+        {
+
+        }
     }
 }

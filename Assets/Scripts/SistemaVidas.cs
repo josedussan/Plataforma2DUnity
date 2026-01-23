@@ -18,6 +18,7 @@ public class SistemaVidas : MonoBehaviour
         vida -= danhioRecibido;
         onVidaChanged?.Invoke(vida);
         ActivarAnimacionDanio();
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * 25f);
         if (vida<=0)
         {
             onMuerte?.Invoke();

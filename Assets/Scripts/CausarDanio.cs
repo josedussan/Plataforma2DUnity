@@ -26,4 +26,11 @@ public class CausarDanio : MonoBehaviour
             return;
         Daniar(other.gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (((1 << other.gameObject.layer) & capasObjetivo) == 0)
+            return;
+        Daniar(other.gameObject);
+    }
 }
